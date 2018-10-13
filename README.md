@@ -3,7 +3,6 @@
 Access multiple web-application running inside docker containers using urls like `https://project.loc` instead of `http://localhost:3000`.
 
 1. Generate wildcard TLS-certificate for `*.loc` domains: `./configure-tls`.
-```
 
 It will create  `loc.key` and `loc.crt` in `./data/certs` directory.
 

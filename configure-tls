@@ -1,0 +1,9 @@
+#! /bin/bash
+mkdir -p ./data/certs
+cd ./data/certs && rm -f ./*
+openssl genrsa -out loc.key 2048
+openssl req -new -verbose -config ../../loc-domain.conf -key loc.key -out loc.csr
+openssl x509 -req -in loc.csr -signkey loc.key -out loc.crt
+openssl x509 -noout -fingerprint -text < loc.crt > loc-cert.info
+chmod 400 loc.key
+

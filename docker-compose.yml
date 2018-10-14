@@ -1,8 +1,8 @@
 version: '3'
 services:
-  nginx-proxy:
+  loc-nginx-proxy:
     image: jwilder/nginx-proxy:alpine
-    container_name: nginx-proxy
+    container_name: loc-nginx-proxy
     ports:
       - "80:80"
       - "443:443"

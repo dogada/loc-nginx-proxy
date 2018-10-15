@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+KEY_FILE="/etc/nginx/certs/loc.key"
+
+if [[ -f $KEY_FILE ]]; then
+  echo "$KEY_FILE found, generation skipped"
+else
+  echo "Generating a certificate for *.loc domains ($KEY_FILE)"
+  cd /etc/nginx/certs \
+  && openssl genrsa -out loc.key 2048 \
+  && openssl req -new -verbose -config /app/loc-domain.conf -key loc.key -out loc.csr \
+  && openssl x509 -req -in loc.csr -signkey loc.key -out loc.crt \
+  && cd /app
+fi

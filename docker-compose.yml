@@ -1,17 +1,13 @@
-version: '3'
+version: '2'
 services:
   loc-nginx-proxy:
-    image: jwilder/nginx-proxy:alpine
+    image: dogada/loc-nginx-proxy:alpine
     container_name: loc-nginx-proxy
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./data/conf.d:/etc/nginx/conf.d
-      - ./data/vhost.d:/etc/nginx/vhost.d
-      - ./data/certs:/etc/nginx/certs:ro
-      - ./data/htpasswd:/etc/nginx/htpasswd:ro
 networks:
   default:
     external:

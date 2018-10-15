@@ -1,0 +1,7 @@
+FROM jwilder/nginx-proxy:alpine
+LABEL maintainer="Dmytro V. Dogadailo dvd@dogada.org"
+COPY generate-loc-domain-certificate loc-domain.conf /app/
+WORKDIR /app/
+EXPOSE 443
+# ensure that we have TLS certificate for *.loc domain and then start nginx & docker-gen
+CMD /app/generate-loc-domain-certificate && forego start -r

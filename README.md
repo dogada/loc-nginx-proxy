@@ -75,5 +75,5 @@ Read more about nginx-proxy configuration: https://github.com/jwilder/nginx-prox
 ## Building loc-nginx-proxy image
 ```
 
-docker build -t dogada/loc-nginx-proxy:alpine -f Dockerfile.alpine .
+docker build -t dogada/loc-nginx-proxy -t dogada/loc-nginx-proxy:alpine -f Dockerfile.alpine .
 ```
